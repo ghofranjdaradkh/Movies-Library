@@ -1,6 +1,6 @@
 # Movies-Library
 # Project Name - Project Version
-** Movies-Library** Version 1.0.0
+**Movies-Library** Version 1.0.0
 
 **Author Name**: Ghofran Jamal Daradkh
 

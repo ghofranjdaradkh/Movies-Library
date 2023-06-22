@@ -18,20 +18,21 @@ function startingLog(req, res) {
 app.get('/', handleData)
 app.get('/favorite', handleFavorite)
 app.use(notFoundHandler)
-
+app.use(errorHandler);
 
 
 function handleData(req, res) {
 
     try {
-        const movie = new moviesLibrary("Spider-Man: No Way Home", "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg", "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.");
+        const movie = new moviesLibrary(uniData.title, uniData.poster_path, uniData.overview);
 
         // Send the instance as a JSON response
         res.json(movie);
     }
 
     catch (error) {
-        app.use(errorHandler);
+        errorHandler(error, req, res, next)
+        
     }
 }
 

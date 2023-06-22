@@ -26,7 +26,7 @@ function moviesLibrary(id, title, release_date, poster, overview) {
 }
 
 
-//for routes discover , popular
+//for routes discover , topRated
 let newInf = [];
 function newMovieData(id, title, vote_average,adult,original_language ) {
     this.id = id
@@ -88,9 +88,9 @@ app.get('/discover',async (req, res) => {
     
 });
 
-app.get('/popular',async (req, res) => {
+app.get('/topRated',async (req, res) => {
 
-        let axiosRes6 = await axios.get(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${process.env.API_KEY}`)
+        let axiosRes6 = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${process.env.API_KEY}`)
         const newMovieInfo = [];
             for (let i = 0; i < axiosRes6.data.results.length; i++) {
                 const data = axiosRes6.data.results[i];

@@ -1,6 +1,6 @@
 # Movies-Library
 # Project Name - Project Version
-**Movies-Library** Version 1.0.0
+**Movies-Library** Version 1.2.0
 
 **Author Name**: Ghofran Jamal Daradkh
 
@@ -13,8 +13,11 @@
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 Set up your development environment that is mean install the required software and tools and necessary runTime (Node.js)
-Import or install required module through node pakage manger **npm** like "express" ,"cores"
-Create server which will listen to client's request and read request then return response.
+Import or install required module through node pakage manger **npm** like "express" ,"cores" ,"axios","dotenv"
+we use express to start building server , axios we use it to send or deal with data from another APIs,
+and the doenv to make me able to read dotenv file which is the file use to hide some data from pushing on github.
+Create server which will listen to Broser request and read request then resend to the third party ApI.
+ the browser constructs an HTTP request. This request includes the HTTP method (e.g., get), the URL of API endpoint 
 Set up the database
 Test and run the app
 

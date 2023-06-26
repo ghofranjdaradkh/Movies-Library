@@ -23,13 +23,11 @@ client .connect().then(()=>{
 })
 
 
-app.get('/',(req,res)=>{res.status(200).send(`main route `)})
-
 app.post("/addMovie", (req, res) => {
-    const { title ,author,release_date, original_language, Genre, overview ,Main_cast, Awards} = req.body;
-    let sql = `INSERT INTO movies ( title,author,release_date, original_language, Genre, overview ,Main_cast, Awards) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`;
-    client.query(sql, [title ,author,release_date, original_language, Genre, overview ,Main_cast, Awards]).then(() => {
-  res.status(201).send(`Movie ${title} added to database if you want to see go to route /getMovies `);
+    const { title ,author,release_date, original_language, Genre, overview ,Main_cast, Awards,comment} = req.body;
+    let sql = `INSERT INTO movies (title,author,release_date, original_language, Genre, overview ,Main_cast, Awards,comment) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`;
+    client.query(sql, [title ,author,release_date, original_language, Genre, overview ,Main_cast, Awards,comment]).then(() => {
+  res.status(201).send(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
 });
 });
 app.get("/getMovies",(req, res) => {

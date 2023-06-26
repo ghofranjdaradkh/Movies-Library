@@ -7,5 +7,6 @@ author varchar(200),
   Genre varchar(200),
   overview varchar(1000),
   Main_cast varchar(500),
-  Awards varchar(500)
+  Awards varchar(500),
+  comment varchar(300)
 );

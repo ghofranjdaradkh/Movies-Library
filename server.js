@@ -3,13 +3,13 @@ const express = require("express");
 const app = express();
 const pg = require("pg");
 
-// let uniData = require("./ MovieData/data.json");
+
 const cors = require("cors");
-// let axios = require("axios")
+
 require('dotenv').config();
 app.use(cors())
 app.use(express.json())
-// app.use(express.json()); 
+
 
 const PORT = process.env.PORT;
 const DB_URL=process.env.DATABASE_URL;

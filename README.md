@@ -1,12 +1,19 @@
 # Movies-Library
 # Project Name - Project Version
-**Movies-Library** Version 1.2.0
+**Movies-Library** Version 1.3.0
 
 **Author Name**: Ghofran Jamal Daradkh
 
 ## WRRC
+LAB11
 ![Alt text](assets/server.PNG)
+LAB12
 ![Alt text](assets/wrrcwithAPI.PNG)
+LAB13
+![Alt text](assets/DBMS.PNG)
+
+
+
 
 ## Overview
 **Movies-Libraries** are of utmost importance because they provide a diverse range of films for entertainment, preserve culture and heritage, and facilitate access to movies. Libraries offer comprehensive information about the films, including their titles, authors, and more, making them easily accessible to the public.
@@ -23,6 +30,9 @@ and the doenv to make me able to read dotenv file which is the file use to hide 
 Create server which will listen to Browser request,When a request is made from a browser to a server that interacts with a third-party API, the browser initiates the request by sending an HTTP request(this request includes the HTTP method (e.g.get), the URL of API endpoint.) to the server. The server acts as a mediator, receiving the request and handling any necessary authentication or authorization processes. It then constructs an appropriate request to the third-party API, and sends it. The third-party API processes the request, performs the requested actions, and generates an HTTP response. The response flows back through the server, which may perform additional processing or transformations before delivering the final response to the browser. 
 Then Set up the database.
 Test and run the app.
+
+LAB 13 :
+NOW , the browser acts as the client and initiates a request by sending an HTTP request to the server. The server receives the request and handles it, establishing a connection with the database,The server formulates SQL queries based on the request and sends them to the database for execution. The database processes the queries, retrieves or modifies the data as needed, and generates a response.The server receives the response,  and sends it back to the browser as an HTTP response
 
 
 ## Project Features

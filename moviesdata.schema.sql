@@ -1,4 +1,4 @@
-create table   if not exists movies(
+create table   if not exists moviesdata(
   id serial primary key,
 title varchar(200),
 author varchar(200),

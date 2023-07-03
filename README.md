@@ -38,7 +38,6 @@ NOW , the browser acts as the client and initiates a request by sending an HTTP 
 ## Project Features
 <!-- What are the features included in you app -->
 For a movies library app, here are some features you may consider including: 
-
-Movie Catalog:Provide a comprehensive catalog of movies, including details like title,genre_ids,language and overview 
-User Registration:Allow users to create accounts and log in to access 
-Movie Reviews :Provide a platform for users to engage in discussions about movies, comment on reviews,
+In the future: Movie Catalog:Provide a comprehensive catalog of movies, including details like title,genre_ids,language and overview User Registration:Allow users to create accounts and log in to access . 
+NOW: Show all movies by get movies we can see all movies in library.
+ Add Movie :we can add new movies to the catalog.

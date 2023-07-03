@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const pg = require("pg");
+
 let uniData = require("./ MovieData/data.json");
 let axios = require("axios")
 
@@ -12,13 +13,13 @@ app.use(cors())
 app.use(express.json())
 
 
-const PORT = process.env.PORT;
-const DB_URL = process.env.DATABASE_URL;
+const PORT= process.env.PORT;
+const DB_URL= process.env.DATABASE_URL;
 
 
 const client = new pg.Client(DB_URL)
-client.connect().then(() => {
-    app.listen(PORT, () => {
+client.connect().then(()=>{
+    app.listen(PORT,()=>{
         console.log(`Listening at ${PORT}`)
     });
 })
@@ -135,7 +136,6 @@ function handleData(req, res) {
     }
 }
 
-
 function handleFavorite(req, res) {
     res.send("Welcome to Favorite Page")
 
@@ -145,10 +145,11 @@ function handleFavorite(req, res) {
 app.post("/addMovie", (req, res) => {
     const { title, release_date, overview, comment } = req.body;
     let sql = `INSERT INTO moviesdata (title,release_date, overview ,comment) VALUES ($1,$2,$3,$4)`;
-    client.query(sql, [title, release_date, overview, comment]).then(() => {
+    client.query(sql, [title,release_date,overview,comment]).then(() => {
         res.status(201).send(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
     });
 });
+
 app.get("/getMovies", (req, res) => {
     let sql = `SELECT * FROM moviesdata`;
     client.query(sql).then((moviesData) => {
@@ -156,48 +157,6 @@ app.get("/getMovies", (req, res) => {
     });
 
 })
-
-
-app.delete('/DELETE/:id', async (req, res, next) => {
-    try {
-        let { id } = req.params;
-        let sql = `DELETE FROM moviesdata WHERE id =${id}`
-        await client.query(sql)
-        res.status(204).end()
-    }
-    catch (error) {
-        next("delete movie" + error)
-    }
-})
-
-
-
-app.put('/UPDATE/:id',async (req, res) => {
-    // try{
-    let { comment } = req.body;
-
-    let sql = `UPDATE moviesdata SET comment=$1 WHERE id=${req.params.id}`;
-     await client.query(sql, [comment])
-    res.status(200).send("updated movie data")
-
-//      catch(error){
-//   next("updated" +error)}
-});
-
-app.get("/getMovie/:id", (req, res) => {
-     let id =req.params.id
-    let sql = `SELECT * FROM moviesdata WHERE id =${id}`;
-    client.query(sql).then((moviesData) => {
-        res.status(200).send(moviesData.rows[0]);
-    });
-
-})
-
-
-
-
-
-
 
 //to handle error
 
@@ -218,12 +177,5 @@ function errorHandler(error, req, res, next) {
         status: 500,
         responseText: "Sorry,something went wrong"
     }
-    res.status(500).send(err);
-}
-
-
-
-
-
-
+    res.status(500).send(err);}
 

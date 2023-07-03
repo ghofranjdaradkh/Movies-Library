@@ -11,6 +11,9 @@ LAB12
 ![Alt text](assets/wrrcwithAPI.PNG)
 LAB13
 ![Alt text](assets/DBMS.PNG)
+LAB14
+![Alt text](assets/WRRC4.PNG)
+
 
 
 
@@ -32,13 +35,22 @@ Then Set up the database.
 Test and run the app.
 
 LAB 13 :
-NOW , the browser acts as the client and initiates a request by sending an HTTP request to the server. The server receives the request and handles it, establishing a connection with the database,The server formulates SQL queries based on the request and sends them to the database for execution. The database processes the queries, retrieves or modifies the data as needed, and generates a response.The server receives the response,  and sends it back to the browser as an HTTP response
+NOW , the browser acts as the client and initiates a request by sending an HTTP request (get,post)to the server. The server receives the request and handles it, establishing a connection with the database,The server formulates SQL queries based on the request and sends them to the database for execution. The database processes the queries, retrieves or modifies the data as needed, and generates a response.The server receives the response,  and sends it back to the browser as an HTTP response.
+
+LAB14 :
+NOW , the browser acts as the client and initiates a request by sending an HTTP request(get,put ,delete) to the server.
+we can send data by in three ways :request body (POST or PUT) or as query parameters(req.params) or query string(req.query).then  The server receives the request and handles it, establishing a connection with the database,The server formulates SQL queries based on the request and sends them to the database for execution. The database processes the queries, retrieves or updated or deleted the data as needed, and generates a response.The server receives the response,  and sends it back to the browser as an HTTP response.
+
 
 
 ## Project Features
 <!-- What are the features included in you app -->
 For a movies library app, here are some features you may consider including: 
-
+in the future:
 Movie Catalog:Provide a comprehensive catalog of movies, including details like title,genre_ids,language and overview 
-User Registration:Allow users to create accounts and log in to access 
-Movie Reviews :Provide a platform for users to engage in discussions about movies, comment on reviews,
+User Registration:Allow users to create accounts and log in to access .
+NOW:
+Show all movies by get movies we can see all movies in library.
+Add Movie :we can add new movies to the catalog .
+Update movies : you can update data of movies if you want .
+Delete movies : you can delete any movie you want .

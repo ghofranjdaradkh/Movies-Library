@@ -136,7 +136,6 @@ function handleData(req, res) {
     }
 }
 
-
 function handleFavorite(req, res) {
     res.send("Welcome to Favorite Page")
 
@@ -150,6 +149,7 @@ app.post("/addMovie", (req, res) => {
         res.status(201).send(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
     });
 });
+
 app.get("/getMovies", (req, res) => {
     let sql = `SELECT * FROM moviesdata`;
     client.query(sql).then((moviesData) => {
@@ -157,7 +157,6 @@ app.get("/getMovies", (req, res) => {
     });
 
 })
-
 
 //to handle error
 
@@ -180,4 +179,3 @@ function errorHandler(error, req, res, next) {
     }
     res.status(500).send(err);}
 
-    

@@ -158,44 +158,6 @@ app.get("/getMovies", (req, res) => {
 })
 
 
-app.delete('/DELETE/:id', async (req, res, next) => {
-    try {
-        let { id } = req.params;
-        let sql = `DELETE FROM moviesdata WHERE id =${id}`
-        await client.query(sql)
-        res.status(204).end()
-    }
-    catch (error) {
-        next("delete movie" + error)
-    }
-})
-
-
-
-app.put('/UPDATE/:id',async (req, res) => {
-    // try{
-    let { comment } = req.body;
-
-    let sql = `UPDATE moviesdata SET comment=$1 WHERE id=${req.params.id}`;
-     await client.query(sql, [comment])
-    res.status(200).send("updated movie data")
-
-//      catch(error){
-//   next("updated" +error)}
-});
-
-app.get("/getMovie/:id", (req, res) => {
-     let id =req.params.id
-    let sql = `SELECT * FROM moviesdata WHERE id =${id}`;
-    client.query(sql).then((moviesData) => {
-        res.status(200).send(moviesData.rows[0]);
-    });
-
-})
-
-
-
-
 
 
 

@@ -26,7 +26,7 @@ RouteAxios.get('/', (req, res)=> {
     }
 
     catch (error) {
-        errorHandler(error, req, res, next)
+        next(`main route +${e}`)
 
     }
 })
@@ -52,7 +52,7 @@ RouteAxios.get('/trending', async (req, res,next) => {
     }
     res.send(allMovieInfo)}
     catch (error){
-        next()
+        next(`trending route +${e}`)
     }
 });
     
@@ -60,8 +60,8 @@ RouteAxios.get('/trending', async (req, res,next) => {
 
 
 RouteAxios.get('/search', async (req,res,next) => {
-
-    const movieName = req.query.name
+    try {
+        const movieName = req.query.name
     let axiosRes2 = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${movieName}&page=2`)
     const allMovieInfo = [];
     for (let i = 0; i < axiosRes2.data.results.length; i++) {
@@ -71,6 +71,13 @@ RouteAxios.get('/search', async (req,res,next) => {
         allMovieInfo.push(movieInfo)
     }
     res.send(allMovieInfo)
+    } catch (error) {
+        next(`search route +${e}`)
+
+        
+    }
+
+    
 });
 
 
@@ -89,7 +96,7 @@ RouteAxios.get('/discover', async (req,res,next) => {
     }
     res.send(newMovieInfo)}
     catch(error){
-        next ()
+        next (`discover route +${e}`)
     }
 
 
@@ -111,7 +118,7 @@ RouteAxios.get('/topRated', async (req,res,next) => {
     }
     res.send(newMovieInfo)}
     catch(error){
-        next()
+        next(`topRated route +${e}`)
     }
 });
 
@@ -119,10 +126,16 @@ RouteAxios.get('/topRated', async (req,res,next) => {
 
 
 //new extra route  
-RouteAxios.get('/languages', async (req, res) => {
-
-    let axiosRes4 = await axios.get(`https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.API_KEY}`);
+RouteAxios.get('/languages', async (req, res,next) => {
+    try {let axiosRes4 = await axios.get(`https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.API_KEY}`);
     res.send(axiosRes4.data)
+        
+    } catch (error) {
+        next(`languages route ${error}`)
+        
+    }
+
+    
 });
 
 

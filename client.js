@@ -1,5 +1,5 @@
 
-const pg = require("pg");
+const pg = require("pg");// to connect JS with postgres use this library 
 
  const {DB_URL}=require('./config')
 

@@ -41,7 +41,7 @@ RouteAxios.get('/favorite',(req,res,next)=>{
 
 RouteAxios.get('/trending', async (req, res,next) => {
 
-    try{
+    try{ // axios is library to get request from third partiy api
         let axiosRes = await axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}&language=en-US`)
     const allMovieInfo = [];
     for (let i = 0; i < axiosRes.data.results.length; i++) {
@@ -50,7 +50,7 @@ RouteAxios.get('/trending', async (req, res,next) => {
         )
         allMovieInfo.push(movieInfo)
     }
-    res.send(allMovieInfo)}
+    res.send(allMovieInfo)} // res is object and send is method inside it 
     catch (error){
         next(`trending route +${e}`)
     }
@@ -128,7 +128,7 @@ RouteAxios.get('/topRated', async (req,res,next) => {
 //new extra route  
 RouteAxios.get('/languages', async (req, res,next) => {
     try {let axiosRes4 = await axios.get(`https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.API_KEY}`);
-    res.send(axiosRes4.data)
+    res.send(axiosRes4.data)// the data I rescived  it like an object ..and  it is store in data property
         
     } catch (error) {
         next(`languages route ${error}`)

@@ -7,9 +7,9 @@ const client=require('../client')
 
 //movies with post method==addMovies
 RouteDB.post("/", (req, res,next) => {
-    try {const { title, release_date, overview, comment } = req.body;
-    let sql = `INSERT INTO moviesdata (title,release_date, overview ,comment) VALUES ($1,$2,$3,$4)`;
-    client.query(sql, [title, release_date, overview, comment]).then(() => {
+    try {const { title, release_date,  poster_path,overview, comment } = req.body;
+    let sql = `INSERT INTO moviedata (title,release_date, poster_path, overview ,comment) VALUES ($1,$2,$3,$4,$5)`;
+    client.query(sql, [title, release_date, poster_path, overview, comment]).then(() => {
         res.status(201).send(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
     });
         
@@ -21,7 +21,7 @@ RouteDB.post("/", (req, res,next) => {
 });
 
 RouteDB.get("/", (req, res,next) => {
-    try { let sql = `SELECT * FROM moviesdata`;
+    try { let sql = `SELECT * FROM moviedata`;
     client.query(sql).then((moviesData) => {
         res.status(200).send(moviesData.rows);
     });
@@ -35,7 +35,7 @@ RouteDB.get("/", (req, res,next) => {
 RouteDB.delete('/:id', async (req, res, next) => {
     try {
         let { id } = req.params;
-        let sql = `DELETE FROM moviesdata WHERE id =${id}`
+        let sql = `DELETE FROM moviedata WHERE id =${id}`
         await client.query(sql)
         res.status(204).end()
     }
@@ -50,7 +50,7 @@ RouteDB.put('/:id',async (req, res,next) => {
     try{
     let { comment } = req.body;
 
-    let sql = `UPDATE moviesdata SET comment=$1 WHERE id=${req.params.id}`;
+    let sql = `UPDATE moviedata SET comment=$1 WHERE id=${req.params.id}`;
      await client.query(sql, [comment])
     res.status(200).send("updated movie data")}
 
@@ -60,7 +60,7 @@ RouteDB.put('/:id',async (req, res,next) => {
 
 RouteDB.get("/:id", ((req, res,next) => {
     try { let id =req.params.id
-        let sql = `SELECT * FROM moviesdata WHERE id =${id}`;
+        let sql = `SELECT * FROM moviedata WHERE id =${id}`;
         client.query(sql).then((moviesData) => {
             res.status(200).send(moviesData.rows[0]);
         });

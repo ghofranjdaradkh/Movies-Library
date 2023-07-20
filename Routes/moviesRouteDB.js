@@ -10,7 +10,7 @@ RouteDB.post("/", (req, res,next) => {
     try {const { title, release_date,  poster_path,overview, comment } = req.body;
     let sql = `INSERT INTO moviedata (title,release_date, poster_path, overview ,comment) VALUES ($1,$2,$3,$4,$5)`;
     client.query(sql, [title, release_date, poster_path, overview, comment]).then(() => {
-        res.status(201).send(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
+        res.status(200).json(`Movie ${title} added to database if you want to see  data go to route /getMovies `);
     });
         
     } catch (error) {
@@ -46,13 +46,13 @@ RouteDB.delete('/:id', async (req, res, next) => {
 
 
 
-RouteDB.put('/:id',async (req, res,next) => {
+RouteDB.put('/:id', (req, res,next) => {
     try{
     let { comment } = req.body;
 
     let sql = `UPDATE moviedata SET comment=$1 WHERE id=${req.params.id}`;
-     await client.query(sql, [comment])
-    res.status(200).send("updated movie data")}
+      client.query(sql, [comment]).then(()=>res.status(200).json("updated movie data")
+    )}
 
      catch(error){
   next(`updated: ${error}`)}
